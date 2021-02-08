@@ -12,7 +12,7 @@ export class SortListPipe implements PipeTransform {
       return value.sort();
     }
     return value.sort((a, b) => {
-      return a[fieldName].toUpperCase() < b[fieldName].toUpperCase() ? -1 : 1;
+      return a[fieldName].toLowerCase() < b[fieldName].toLowerCase() ? -1 : 1;
     });
   }
 
