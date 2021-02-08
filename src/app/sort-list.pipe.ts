@@ -2,6 +2,7 @@ import { Pipe, PipeTransform } from '@angular/core';
 
 @Pipe({
   name: 'sortList',
+  pure: false
 })
 export class SortListPipe implements PipeTransform {
 
@@ -11,8 +12,7 @@ export class SortListPipe implements PipeTransform {
       return value.sort();
     }
     return value.sort((a, b) => {
-      console.log(a[fieldName] - b[fieldName]);
-      return a[fieldName] < b[fieldName] ? -1 : 1;
+      return a[fieldName].toUpperCase() < b[fieldName].toUpperCase() ? -1 : 1;
     });
   }
 
